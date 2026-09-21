@@ -40,7 +40,6 @@ with pd.ExcelWriter("Monthly_Report.xlsx", engine="openpyxl") as writer:
         sheet_name="카테고리별합계",
         index=False
     )
-print("Monthly_Report.xlsx 저장 완료")
 
 print(result.head())
 print(category_total.head())
