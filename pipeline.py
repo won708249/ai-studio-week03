@@ -3,10 +3,10 @@ pd.set_option("display.width", 180)
 df = pd.read_csv("RAW_DATA.csv", encoding="cp949")
 
 print(" === RAW_DATA csv 파일 내용 === ")
-print(df.head())
+print(df.shape)
 print(df.info())
 print(df.describe())
-print(df.shape)
+print(df.head())
 
 df["단가"] = ( pd.to_numeric( df["단가"].astype(str).str.replace(",", "", regex=False), errors="coerce" ) .astype("Int64") )
 
