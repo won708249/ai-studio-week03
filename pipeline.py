@@ -7,3 +7,10 @@ print(df.head())
 print(df.info())
 print(df.describe())
 print(df.shape)
+
+df["단가"] = ( pd.to_numeric( df["단가"].astype(str).str.replace(",", "", regex=False), errors="coerce" ) .astype("Int64") )
+
+df["매출액"] = df["단가"] * df["수량"]
+df["주문일자"] = pd.to_datetime(df["주문일자"])
+
+df["월"] = df["주문일자"].dt.month
