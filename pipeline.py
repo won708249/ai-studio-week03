@@ -22,3 +22,30 @@ result = df.groupby(["월", "카테고리"]).agg(
 ).reset_index()
 print(result)
 
+category_total = df.groupby("카테고리").agg(
+    총매출=("매출액", "sum")
+).reset_index()
+category_total = category_total.sort_values("총매출", ascending=False)
+
+
+with pd.ExcelWriter("Monthly_Report.xlsx", engine="openpyxl") as writer:
+    result.to_excel(
+        writer,
+        sheet_name="월별카테고리요약",
+        index=False
+    )
+
+    category_total.to_excel(
+        writer,
+        sheet_name="카테고리별합계",
+        index=False
+    )
+print("Monthly_Report.xlsx 저장 완료")
+
+print(result.head())
+print(category_total.head())
+
+
+assert df["매출액"].sum() == category_total["총매출"].sum()
+
+print("Monthly_Report.xlsx 저장 및 검증 완료")
