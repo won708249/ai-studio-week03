@@ -1,4 +1,3 @@
-
 # 인코딩 로드
     (500, 5)
     <class 'pandas.DataFrame'>
@@ -23,7 +22,7 @@
     여기서 “월별 × 카테고리별”의 ×는 곱하기가 아닙니다.
     “월별이면서 동시에 카테고리별로 나눠서 집계한다”는 뜻입니다.
 
-**2. === RAW_DATA csv 파일 내용 === 주문일자 상품명 카테고리 단가 수량 0 2026-01-01 크루아상 베이커리 4500 1 1 2026-01-01 스콘 디저트 4000 3 2 2026-01-01 크로플 디저트 6,000 2 3 2026-01-01 크루아상 베이커리 4500 3 4 2026-01-01 샌드위치 베이커리 7000 1 <class 'pandas.DataFrame'> RangeIndex: 500 entries, 0 to 499 Data columns (total 5 columns): # Column Non-Null Count Dtype --- ------ -------------- ----- 0 주문일자 500 non-null str 1 상품명 500 non-null str 2 카테고리 500 non-null str 3 단가 500 non-null str 4 수량 500 non-null int64 dtypes: int64(1), str(4) memory usage: 19.7 KB None 이와 같은 csv가 있다. '단가'와 '수량' 열을 곱해 '매출액' 열을 만들고, '주문일자’에서 ‘월’을 추출한 뒤, 월별 × 카테고리별 매출 총합, 평균, 거래건수를 groupby로 집계하는 코드를 작성하라.**
+**2. === RAW_DATA csv 파일 내용 === 주문일자 상품명 카테고리 단가 수량 0 2026-01-01 크루아상 베이커리 4500 1 1 2026-01-01 스콘 디저트 4000 3 2 2026-01-01 크로플 디저트 6,000 2 3 2026-01-01 크루아상 베이커리 4500 3 4 2026-01-01 샌드위치 베이커리 7000 1 <class 'pandas.DataFrame'> RangeIndex: 500 entries, 0 to 499 Data columns (total 5 columns): # Column Non-Null Count Dtype --- ------ -------------- ----- 0 주문일자 500 non-null str 1 상품명 500 non-null str 2 카테고리 500 non-null str 3 단가 500 non-null str 4 수량 500 non-null int64 dtypes: int64(1), str(4) memory usage: 19.7 KB None 이와 같은 csv가 있다. '단가'와 '수량' 열을 곱해 '매출액' 열을 만들고, '주문일자’에서 ‘월’을 추출한 뒤, 월별 × 카테고리별 매출 총합, 매출 평균, 거래건수를 groupby로 집계하는 코드를 작성하라.**
 ```python
 -import pandas as pd
 
